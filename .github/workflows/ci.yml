@@ -1,0 +1,18 @@
+name: tests
+
+on:
+  pull_request:
+    branches: [develop]
+  push:
+    branches: [develop]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    name: Test Rules
+    steps:
+    - uses: actions/checkout@v4
+    - name: test-rules
+      run: |
+        pip install semgrep
+        make test
